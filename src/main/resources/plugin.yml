@@ -1,0 +1,9 @@
+name: BalBlock
+version: 1.0.0
+main: com.yusuf.balblock.BalBlockPlugin
+api-version: '1.21'
+depend: [Vault]
+commands:
+  balblock:
+    description: BalBlock komutlari
+    
