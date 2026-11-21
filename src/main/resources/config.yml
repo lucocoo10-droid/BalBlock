@@ -1,0 +1,12 @@
+prefix: '&6[BalBlock] &r'
+block-material: GOLD_BLOCK
+ranks:
+  vip:
+    required-balance: 10000.0
+    permission: balblock.rank.vip
+    command: lp user %player% parent add vip
+  mvp:
+    required-balance: 50000.0
+    permission: balblock.rank.mvp
+    command: lp user %player% parent add mvp
+    
