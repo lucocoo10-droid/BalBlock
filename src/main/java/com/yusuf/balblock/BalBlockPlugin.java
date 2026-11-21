@@ -75,5 +75,27 @@ public class BalBlockPlugin extends JavaPlugin {
             String cmd = sec.getString("command", "");
 
             if (!perm.isEmpty() && player.hasPermission(perm)) {
-                if (targetRank != null
-                    
+                if (targetRank != null) {
+                    player.sendMessage(prefix + "§aBu rutbeye zaten sahipsin.");
+                    return true;
+                }
+                continue;
+            }
+
+            if (balance >= req) {
+                if (!cmd.isEmpty()) {
+                    String finalCmd = cmd.replace("%player%", player.getName());
+                    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), finalCmd);
+                }
+                player.sendMessage(prefix + "§aTebrikler! §e" + key.toUpperCase() + " §arutbesini acdin.");
+                return true;
+            } else if (targetRank != null) {
+                player.sendMessage(prefix + "§cYeterli bakiye yok! Gereken: §e" + req + " §c| Mevcut: §e" + String.format("%.2f", balance));
+                return true;
+            }
+        }
+
+        player.sendMessage(prefix + "§eSu an acabilecegin yeni bir rutbe bulunmuyor.");
+        return true;
+    }
+}
